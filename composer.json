@@ -1,0 +1,23 @@
+{
+    "name": "haschamedia/haschadev",
+    "type": "library",
+    "description": "Sumber kode utama untuk menjalankan prosedur pembuatan dan pengembangan produk aplikasi Hascha Media",
+    "keywords": ["haschamedia", "ekatalog", "marketing-studio", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "HaschaDev\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HaschaDev\\HaschaDevServiceProvider",
+                "HaschaDev\\RouteServiceProvider"
+            ]
+        }
+    }
+}

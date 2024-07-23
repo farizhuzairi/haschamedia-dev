@@ -1,0 +1,124 @@
+<?php
+
+namespace HaschaDev\Production\Feature;
+
+use HaschaDev\Dev;
+use HaschaDev\Production\Feature\Feature;
+use HaschaDev\Production\Abstracts\AppBuilder;
+use HaschaDev\Production\Abstracts\Production;
+use HaschaDev\Production\Abstracts\FactoryBuilder;
+use HaschaDev\Production\Traits\Transaction\Relationable;
+use HaschaDev\Production\Traits\LiveSession\LiveSessionable;
+use HaschaDev\Production\Traits\Transaction\QuickTransaction;
+use HaschaDev\Production\Traits\FormValidation\DevInfoValidation;
+use HaschaDev\Production\Traits\FormValidation\ProductIdValidation;
+use HaschaDev\Production\Traits\FormValidation\BaseValidationFormApp;
+use HaschaDev\Production\Traits\FormValidation\PublicInfoValidationFormApp;
+
+class FeatureFactory extends AppBuilder implements FactoryBuilder
+{
+    public function __construct(Dev $dev)
+    {
+        parent::__construct($dev);
+    }
+
+    /**
+     * Validasi atribut: modelId
+     * 
+     */
+    public function modelIdValidation(): array
+    {
+        return [
+            'required',
+            'int',
+            'min:1'
+        ];
+    }
+
+    /**
+     * Validasi atribut: code
+     * 
+     */
+    public function codeValidation(): array
+    {
+        return [
+            'required',
+            'string',
+            'min:32',
+            'max:150'
+        ];
+    }
+
+    /**
+     * Validasi atribut: priority
+     * 
+     */
+    public function priorityValidation(): array
+    {
+        return [
+            'required',
+            'int',
+            'min:0',
+            'max:3'
+        ];
+    }
+
+    /**
+     * Validasi atribut: type
+     * 
+     */
+    public function typeValidation(): array
+    {
+        return [
+            'required',
+            'string',
+            'min:3',
+            'max:50'
+        ];
+    }
+
+    /**
+     * Product Id Validation
+     * Base Validation Form Application
+     * Public Information Validation Form Application
+     * 
+     */
+    use ProductIdValidation, BaseValidationFormApp, PublicInfoValidationFormApp, DevInfoValidation;
+
+    /**
+     * membangun koneksi
+     * ke Production
+     * 
+     */
+    public function build(): Production
+    {
+        return new Feature();
+    }
+
+    /**
+     * membuat objek ke sumber daya
+     * melalui Production
+     * 
+     */
+    public function make(array $validated): array
+    {
+        $instance = $this->build();
+        $instance->createNewModel($validated);
+        $data = $instance->data();
+        if($data) return $data;
+        return [];
+    }
+
+    /**
+     * Live Session
+     * Quick Transactionable
+     * 
+     */
+    use LiveSessionable, QuickTransaction;
+
+    /**
+     * Relationable Transaction
+     * 
+     */
+    use Relationable;
+}
