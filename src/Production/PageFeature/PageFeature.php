@@ -27,12 +27,11 @@ class PageFeature implements Production
     {
         try {
             $store = $attributes ? DBPageFeature::create([
-                'service_id' => $attributes['serviceId'],
-                'route_name' => $attributes['routeName'],
+                'page_service_id' => $attributes['pageServiceId'],
+                'pageContentable' => $attributes['contentable'],
+                'code' => $attributes['code'],
                 'name' => $attributes['name'],
                 'title' => $attributes['title'],
-                'tagline' => $attributes['tagline'],
-                'description' => $attributes['description'],
                 'content' => $attributes['content'],
             ]) : false;
             if($store) $this->modelData = $store;
@@ -65,13 +64,13 @@ class PageFeature implements Production
     {
         $result = $isArray ? [] : null;
         try {
-            $services = DBPageFeature::get();
-            if($services){
-                $result = $services;
+            $pageFeatures = DBPageFeature::get();
+            if($pageFeatures){
+                $result = $pageFeatures;
                 
                 // to array ...
                 if($isArray){
-                    $result = $services->map(function($i){
+                    $result = $pageFeatures->map(function($i){
                         $result = $i->toArray();
                         return $result;
                     })->toArray();
@@ -96,17 +95,16 @@ class PageFeature implements Production
     {
         $result = $isArray ? [] : null;
         try {
-            $page = DBPageFeature::find($id);
-            if($page){
-                $result = $page;
+            $pageFeature = DBPageFeature::find($id);
+            if($pageFeature){
+                $result = $pageFeature;
                 
                 // to array ...
                 if($isArray){
-                    $result = $page->toArray();
-                    // service ...
-                    $service = $page->service;
-                    $result['service'] = $service ? $service->toArray() : [];
-                    $result['service']['logo'] = $service ? $service->logo() : [];
+                    $result = $pageFeature->toArray();
+                    // page service ...
+                    $pageService = $pageFeature->pageService;
+                    $result['page_service'] = $pageService ? $pageService->toArray() : [];
                 }
             }
         } catch (\Throwable $th) {
@@ -131,22 +129,22 @@ class PageFeature implements Production
 
         $result = $isArray ? [] : null;
         try {
-            $pages = DBPageFeature::query();
+            $pageFeatures = DBPageFeature::query();
             foreach($foreigns as $foreignName => $foreignId){
                 $foreignName = HaschaMedia::productIdAliases($foreignName);
-                $pages = $pages->where($foreignName, '=', $foreignId);
+                $pageFeatures = $pageFeatures->where($foreignName, '=', $foreignId);
             }
-            $pages = $pages->get();
-            if($pages){
-                $result = $pages;
+            $pageFeatures = $pageFeatures->get();
+            if($pageFeatures){
+                $result = $pageFeatures;
                 
                 // to array ...
                 if($isArray){
-                    $result = $pages->map(function($i){
+                    $result = $pageFeatures->map(function($i){
                         $result = $i->toArray();
-                        $service = $i->service;
-                        $result['service'] = $service ? $service->toArray() : [];
-                        $result['service']['logo'] = $service ? $service->logo() : [];
+                        // page service ...
+                        $pageService = $i->pageService;
+                        $result['page_service'] = $pageService ? $pageService->toArray() : [];
                         return $result;
                     })->toArray();
                 }
