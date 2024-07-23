@@ -25,6 +25,7 @@ class Handler implements Dev
     public function setGuarded(): void
     {
         $this->guarded = Config::set();
+        \Illuminate\Support\Facades\Config::set('auth.providers.users.model', env('AUTH_MODEL', HaschaDev\Models\User::class));
     }
 
     /**
