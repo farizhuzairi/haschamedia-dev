@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use HaschaDev\Database\Abstracts\Modelable;
 use HaschaDev\Production\Abstracts\Production;
-use App\Models\Production\FeatureModel as DBFeatureModel;
+use HaschaDev\Models\Production\FeatureModel as DBFeatureModel;
 
 class FeatureModel implements Production
 {

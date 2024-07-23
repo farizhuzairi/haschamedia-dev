@@ -8,7 +8,7 @@ use HaschaDev\File\Media\Imageable;
 use Illuminate\Support\Facades\Log;
 use HaschaDev\Database\Abstracts\Modelable;
 use HaschaDev\File\Traits\GlobalImageUpload;
-use App\Models\Production\ApplicationProduct;
+use HaschaDev\Models\Production\ApplicationProduct;
 use HaschaDev\Production\Abstracts\Production;
 
 class Product implements Production

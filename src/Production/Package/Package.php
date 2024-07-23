@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Query\JoinClause;
 use HaschaDev\Database\Abstracts\Modelable;
-use App\Models\Production\ApplicationProduct;
+use HaschaDev\Models\Production\ApplicationProduct;
 use HaschaDev\Production\Abstracts\Priceable;
 use HaschaDev\Production\Abstracts\Production;
-use App\Models\Production\ServicePackage as DBPackage;
+use HaschaDev\Models\Production\ServicePackage as DBPackage;
 
 class Package implements Production, Priceable
 {
@@ -233,7 +233,7 @@ class Package implements Production, Priceable
     public function createNewServicePackagePrice(array $attributes): self
     {
         try {
-            $store = $attributes ? \App\Models\Production\ServicePackagePrice::create([
+            $store = $attributes ? \HaschaDev\Models\Production\ServicePackagePrice::create([
                 'service_package_id' => $attributes['packageId'],
                 'price' => $attributes['price'],
                 // 'currency' => $attributes['currency'],
@@ -256,7 +256,7 @@ class Package implements Production, Priceable
     public function updateServicePackagePrice(array $attributes): self
     {
         try {
-            $db = \App\Models\Production\ServicePackagePrice::where('service_package_id', '=', $attributes['packageId'])->first();
+            $db = \HaschaDev\Models\Production\ServicePackagePrice::where('service_package_id', '=', $attributes['packageId'])->first();
             if(! $db) return $this;
 
             $store = $db ? $db->update([
@@ -266,7 +266,7 @@ class Package implements Production, Priceable
                 // 'min_order_based_on_period' => $attributes['minOrder'],
             ]) : false;
             if($store){
-                // $openNewData = \App\Models\Production\ServicePackagePrice::find($db->id);
+                // $openNewData = \HaschaDev\Models\Production\ServicePackagePrice::find($db->id);
                 $this->modelData = $db;
             }
         } catch (\Throwable $th) {
@@ -287,7 +287,7 @@ class Package implements Production, Priceable
     {
         $result = $isArray ? [] : null;
         try {
-            $packagePrice = \App\Models\Production\ServicePackagePrice::where('service_package_id', '=', $packageId)->first();
+            $packagePrice = \HaschaDev\Models\Production\ServicePackagePrice::where('service_package_id', '=', $packageId)->first();
             if($packagePrice){
                 $result = $packagePrice;
                 

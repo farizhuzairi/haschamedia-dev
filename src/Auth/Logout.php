@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Auth;
 
-use App\Models\User;
+use HaschaDev\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

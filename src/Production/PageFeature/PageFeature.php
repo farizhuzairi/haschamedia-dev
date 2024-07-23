@@ -1,15 +1,17 @@
 <?php
 
-namespace HaschaDev\Production\Feature;
+namespace HaschaDev\Production\PageFeature;
 
 use HaschaDev\HaschaMedia;
 use Illuminate\Support\Collection;
+use HaschaDev\File\Media\Imageable;
 use Illuminate\Support\Facades\Log;
+use HaschaDev\Application\ClientWebRoute;
 use HaschaDev\Database\Abstracts\Modelable;
 use HaschaDev\Production\Abstracts\Production;
-use HaschaDev\Models\Production\Feature as DBFeature;
+use HaschaDev\Models\Production\PageFeature as DBPageFeature;
 
-class Feature implements Production
+class PageFeature implements Production
 {
     private Collection|Modelable|array|null $modelData = null;
 
@@ -24,22 +26,20 @@ class Feature implements Production
     public function createNewModel(array $attributes): self
     {
         try {
-            $store = $attributes ? DBFeature::create([
-                'application_product_id' => $attributes['productId'],
-                'feature_model_id' => $attributes['modelId'],
-                'code' => $attributes['code'],
-                'priority' => $attributes['priority'],
-                'type' => $attributes['type'],
+            $store = $attributes ? DBPageFeature::create([
+                'service_id' => $attributes['serviceId'],
+                'route_name' => $attributes['routeName'],
                 'name' => $attributes['name'],
-                'description' => $attributes['description'],
-                'alias' => $attributes['alias'],
+                'title' => $attributes['title'],
                 'tagline' => $attributes['tagline'],
-                'details' => $attributes['details'],
-                'dev_info' => $attributes['devInfo'],
+                'description' => $attributes['description'],
+                'content' => $attributes['content'],
             ]) : false;
             if($store) $this->modelData = $store;
         } catch (\Throwable $th) {
-            Log::error("Failed to perform a data transaction to the resource. {$th}");
+            Log::error("Failed to perform a data transaction to the resource. #createNewModel error_in_PHP_class" . __CLASS__, [
+                'error' => $th
+            ]);
         }
         return $this;
     }
@@ -65,20 +65,20 @@ class Feature implements Production
     {
         $result = $isArray ? [] : null;
         try {
-            $model = DBFeature::get();
-            if($model){
-                $result = $model;
+            $services = DBPageFeature::get();
+            if($services){
+                $result = $services;
                 
                 // to array ...
                 if($isArray){
-                    $result = $model->map(function($i){
+                    $result = $services->map(function($i){
                         $result = $i->toArray();
                         return $result;
                     })->toArray();
                 }
             }
         } catch (\Throwable $th) {
-            Log::error("Invalid data modelable. error_in_PHP_class: " . __CLASS__, [
+            Log::error("Invalid data modelable. #getModelable error_in_PHP_class: " . __CLASS__, [
                 'error' => $th
             ]);
         }
@@ -96,22 +96,21 @@ class Feature implements Production
     {
         $result = $isArray ? [] : null;
         try {
-            $feature = DBFeature::find($id);
-            if($feature){
-                $result = $feature;
+            $page = DBPageFeature::find($id);
+            if($page){
+                $result = $page;
                 
                 // to array ...
                 if($isArray){
-                    $result = $feature->toArray();
-                    $model = $feature->featureModel;
-                    $product = $feature->applicationProduct;
-                    $result['model'] = $model ? $model->toArray() : [];
-                    $result['product'] = $product ? $product->toArray() : [];
-                    $result['product']['logo'] = $product ? $product->logo() : [];
+                    $result = $page->toArray();
+                    // service ...
+                    $service = $page->service;
+                    $result['service'] = $service ? $service->toArray() : [];
+                    $result['service']['logo'] = $service ? $service->logo() : [];
                 }
             }
         } catch (\Throwable $th) {
-            Log::error("Invalid data modelable. error_in_PHP_class: " . __CLASS__, [
+            Log::error("Invalid data modelable. #findModelable error_in_PHP_class: " . __CLASS__, [
                 'error' => $th
             ]);
         }
@@ -132,30 +131,28 @@ class Feature implements Production
 
         $result = $isArray ? [] : null;
         try {
-            $model = DBFeature::query();
+            $pages = DBPageFeature::query();
             foreach($foreigns as $foreignName => $foreignId){
                 $foreignName = HaschaMedia::productIdAliases($foreignName);
-                $model = $model->where($foreignName, '=', $foreignId);
+                $pages = $pages->where($foreignName, '=', $foreignId);
             }
-            $model = $model->get();
-            if($model){
-                $result = $model;
+            $pages = $pages->get();
+            if($pages){
+                $result = $pages;
                 
                 // to array ...
                 if($isArray){
-                    $result = $model->map(function($i){
+                    $result = $pages->map(function($i){
                         $result = $i->toArray();
-                        $model = $i->featureModel;
-                        $product = $i->applicationProduct;
-                        $result['model'] = $model ? $model->toArray() : [];
-                        $result['product'] = $product ? $product->toArray() : [];
-                        $result['product']['logo'] = $product ? $product->logo() : [];
+                        $service = $i->service;
+                        $result['service'] = $service ? $service->toArray() : [];
+                        $result['service']['logo'] = $service ? $service->logo() : [];
                         return $result;
                     })->toArray();
                 }
             }
         } catch (\Throwable $th) {
-            Log::error("Invalid data modelable. error_in_PHP_class: " . __CLASS__, [
+            Log::error("Invalid data modelable. #getWhereModelable error_in_PHP_class: " . __CLASS__, [
                 'error' => $th
             ]);
         }

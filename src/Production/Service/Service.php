@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 use HaschaDev\Database\Abstracts\Modelable;
 use HaschaDev\File\Traits\GlobalImageUpload;
 use HaschaDev\Production\Abstracts\Production;
-use App\Models\Production\Service as DBService;
+use HaschaDev\Models\Production\Service as DBService;
 
 class Service implements Production
 {

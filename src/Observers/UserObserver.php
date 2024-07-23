@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Observers;
 
-use App\Models\User;
+use HaschaDev\Models\User;
 use HaschaDev\Roleable;
 use HaschaDev\HaschaMedia;
 use HaschaDev\Models\Role;

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 use HaschaDev\Application\ClientWebRoute;
 use HaschaDev\Database\Abstracts\Modelable;
 use HaschaDev\Production\Abstracts\Production;
-use App\Models\Production\PageService as DBPageService;
+use HaschaDev\Models\Production\PageService as DBPageService;
 
 class PageService implements Production
 {

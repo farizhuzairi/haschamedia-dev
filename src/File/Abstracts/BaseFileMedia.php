@@ -3,7 +3,7 @@
 namespace HaschaDev\File\Abstracts;
 
 use HaschaDev\HaschaMedia;
-use App\Models\File\FileMedia;
+use HaschaDev\Models\File\FileMedia;
 use Illuminate\Support\Facades\Log;
 
 abstract class BaseFileMedia

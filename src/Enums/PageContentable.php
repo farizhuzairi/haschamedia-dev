@@ -7,7 +7,7 @@ use HaschaDev\Enums\Enumerationable;
 enum PageContentable : string
 {
     case TEXT = "text";
-    case ARTICLE = "text";
+    case ARTICLE = "article";
     case TAG = "anchor";
     case IMAGE = "image";
     case IMAGES = "images";

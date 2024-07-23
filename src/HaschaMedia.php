@@ -2,7 +2,7 @@
 
 namespace HaschaDev;
 
-use App\Models\User;
+use HaschaDev\Models\User;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 

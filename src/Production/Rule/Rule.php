@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Query\JoinClause;
 use HaschaDev\Database\Abstracts\Modelable;
-use App\Models\Production\ApplicationProduct;
+use HaschaDev\Models\Production\ApplicationProduct;
 use HaschaDev\Production\Abstracts\Production;
-use App\Models\Production\FeatureRule as DBRule;
+use HaschaDev\Models\Production\FeatureRule as DBRule;
 use HaschaDev\Production\Traits\Helpers\ContentValueConvert;
 
 class Rule implements Production
