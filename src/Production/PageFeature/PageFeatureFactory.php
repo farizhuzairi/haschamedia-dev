@@ -142,6 +142,7 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
     {
         // definisikan nilai modelValue
         $model = PageContentable::tryFrom($modelValue);
+        if(empty($contents)) return null;
         
         /**
          * as TEXT
