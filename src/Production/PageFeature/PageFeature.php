@@ -36,7 +36,7 @@ class PageFeature implements Production
             ]) : false;
             if($store) $this->modelData = $store;
         } catch (\Throwable $th) {
-            Log::error("Failed to perform a data transaction to the resource. #createNewModel error_in_PHP_class" . __CLASS__, [
+            Log::error("Failed to perform a data transaction to the resource. #createNewModel error_in_PHP_class: " . __CLASS__, [
                 'error' => $th
             ]);
         }
