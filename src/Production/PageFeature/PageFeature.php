@@ -106,11 +106,11 @@ class PageFeature implements Production
                     $pageService = $pageFeature->pageService;
                     $result['page_service'] = $pageService ? $pageService->toArray() : [];
                     // service ...
-                    $service = $pageFeature->service;
+                    $service = $pageService->service;
                     $result['service'] = $service ? $service->toArray() : [];
                     $result['service']['logo'] = $service ? $service->logo() : [];
                     // product ...
-                    $product = $pageFeature->applicationProduct;
+                    $product = $service->applicationProduct;
                     $result['product'] = $product ? $product->toArray() : [];
                     $result['product']['logo'] = $product ? $product->logo() : [];
                 }
