@@ -38,4 +38,13 @@ class PageFeature extends Model implements Modelable
     {
         return $this->belongsTo(PageService::class, 'page_service_id', 'id');
     }
+
+    /**
+     * get data content
+     * 
+     */
+    public function dataContent(): array
+    {
+        return json_decode($this->content, true);
+    }
 }

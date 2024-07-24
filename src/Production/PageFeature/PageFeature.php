@@ -72,6 +72,7 @@ class PageFeature implements Production
                 if($isArray){
                     $result = $pageFeatures->map(function($i){
                         $result = $i->toArray();
+                        $result['data_content'] = $i->dataContent();
                         return $result;
                     })->toArray();
                 }
@@ -102,6 +103,7 @@ class PageFeature implements Production
                 // to array ...
                 if($isArray){
                     $result = $pageFeature->toArray();
+                    $result['data_content'] = $pageFeature->dataContent();
                     // page service ...
                     $pageService = $pageFeature->pageService;
                     $result['page_service'] = $pageService ? $pageService->toArray() : [];
@@ -149,6 +151,7 @@ class PageFeature implements Production
                 if($isArray){
                     $result = $pageFeatures->map(function($i){
                         $result = $i->toArray();
+                        $result['data_content'] = $i->dataContent();
                         // page service ...
                         $pageService = $i->pageService;
                         $result['page_service'] = $pageService ? $pageService->toArray() : [];
