@@ -10,6 +10,7 @@ trait PageFeatureFactoryFormable
     public array $service;
     public ?string $serviceId;
     public array $pageService;
+    public array $contentables = [];
     
     /**
      * attributes

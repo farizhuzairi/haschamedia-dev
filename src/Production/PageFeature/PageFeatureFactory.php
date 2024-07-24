@@ -147,13 +147,25 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          * as TEXT
          * 
          */
-        if($model === PageContentable::TEXT){}
+        if($model === PageContentable::TEXT){
+            $result = [
+                $model->value => $contents['content']
+            ];
+            $result = json_encode($result);
+            return (string) $result;
+        }
 
         /**
          * as ARTICLE
          * 
          */
-        elseif($model === PageContentable::ARTICLE){}
+        elseif($model === PageContentable::ARTICLE){
+            $result = [
+                $model->value => $contents['content']
+            ];
+            $result = json_encode($result);
+            return (string) $result;
+        }
 
         /**
          * as TAG
