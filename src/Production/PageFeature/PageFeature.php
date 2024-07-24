@@ -139,7 +139,6 @@ class PageFeature implements Production
         try {
             $pageFeatures = DBPageFeature::query();
             foreach($foreigns as $foreignName => $foreignId){
-                $foreignName = HaschaMedia::productIdAliases($foreignName);
                 $pageFeatures = $pageFeatures->where($foreignName, '=', $foreignId);
             }
             $pageFeatures = $pageFeatures->get();

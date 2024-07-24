@@ -52,6 +52,7 @@ class PageFeatureController extends Controller
     public function manage(
         PageFeatureFactory $factory,
         string $productId,
+        string $pageServiceId,
         string $pageFeatureId,
     ): View|RedirectResponse
     {
