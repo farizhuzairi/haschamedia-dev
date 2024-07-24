@@ -28,7 +28,7 @@ class PageFeature implements Production
         try {
             $store = $attributes ? DBPageFeature::create([
                 'page_service_id' => $attributes['pageServiceId'],
-                'pageContentable' => $attributes['contentable'],
+                'page_contentable' => $attributes['contentable'],
                 'code' => $attributes['code'],
                 'name' => $attributes['name'],
                 'title' => $attributes['title'],
