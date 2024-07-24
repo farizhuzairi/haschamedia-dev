@@ -285,6 +285,27 @@ Route::prefix('/product/{productId}/service/page-service/{serviceId}')->middlewa
 });
 
 /**
+ * PAGE FEATURE
+ * -----------------------------------
+ * PageFeatureController@
+ * 
+ */
+Route::prefix('/product/{productId}/service/page-feature/{pageServiceId}')->middleware([
+    'auth'
+])->group(function () {
+
+    /**
+     * Create New Page Feature
+     * 
+     */
+    Route::get(
+        '/create/{key}',
+        [\HaschaDev\Http\Controllers\Product\PageFeatureController::class, 'create']
+    )->name(Routerable::SERVICE_PAGE_FEATURE_CREATE->value)->whereNumber('productId')->whereNumber('pageServiceId');
+
+});
+
+/**
  * PACKAGE
  * -----------------------------------
  * PackageController@

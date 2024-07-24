@@ -105,6 +105,14 @@ class PageFeature implements Production
                     // page service ...
                     $pageService = $pageFeature->pageService;
                     $result['page_service'] = $pageService ? $pageService->toArray() : [];
+                    // service ...
+                    $service = $pageFeature->service;
+                    $result['service'] = $service ? $service->toArray() : [];
+                    $result['service']['logo'] = $service ? $service->logo() : [];
+                    // product ...
+                    $product = $pageFeature->applicationProduct;
+                    $result['product'] = $product ? $product->toArray() : [];
+                    $result['product']['logo'] = $product ? $product->logo() : [];
                 }
             }
         } catch (\Throwable $th) {

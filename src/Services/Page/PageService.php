@@ -174,6 +174,13 @@ class PageService implements Pageable
             $tagline = "";
             $description = "";
             break;
+            
+            case Routerable::SERVICE_PAGE_FEATURE_CREATE:
+            $title = "Create New Page Feature";
+            $name = "Tambah Fitur Halaman Baru";
+            $tagline = "";
+            $description = "";
+            break;
 
             case Routerable::PACKAGE:
             $title = "Service Package Page";
