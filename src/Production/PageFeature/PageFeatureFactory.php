@@ -3,6 +3,7 @@
 namespace HaschaDev\Production\PageFeature;
 
 use HaschaDev\Dev;
+use HaschaDev\Enums\PageContentable;
 use HaschaDev\Production\Abstracts\AppBuilder;
 use HaschaDev\Production\Abstracts\Production;
 use HaschaDev\Production\PageFeature\PageFeature;
@@ -81,9 +82,9 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
     public function contentValidation(): array
     {
         return [
+            'required',
             'string',
-            'max:8000',
-            'nullable'
+            'max:8000'
         ];
     }
 
@@ -131,4 +132,73 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
      * 
      */
     use Relationable;
+
+    /**
+     * Validasi data Page Contentable
+     * sesuai nilai (value) dan model:value
+     * 
+     */
+    public function adjustment(string $modelValue, array $contents): ?string
+    {
+        // definisikan nilai modelValue
+        $model = PageContentable::tryFrom($modelValue);
+        
+        /**
+         * as TEXT
+         * 
+         */
+        if($model === PageContentable::TEXT){}
+
+        /**
+         * as ARTICLE
+         * 
+         */
+        elseif($model === PageContentable::ARTICLE){}
+
+        /**
+         * as TAG
+         * 
+         */
+        elseif($model === PageContentable::TAG){}
+
+        /**
+         * as IMAGE
+         * 
+         */
+        elseif($model === PageContentable::IMAGE){}
+
+        /**
+         * as IMAGES
+         * 
+         */
+        elseif($model === PageContentable::IMAGES){}
+
+        /**
+         * as BANNER
+         * 
+         */
+        elseif($model === PageContentable::BANNER){}
+
+        /**
+         * as BANNERS
+         * 
+         */
+        elseif($model === PageContentable::BANNERS){}
+        
+        /**
+         * mismatch
+         * 
+         */
+        return null;
+    }
+
+    /**
+     * data contentable
+     * array()
+     * 
+     */
+    public function dataContentable(): array
+    {
+        return PageContentable::data();
+    }
 }
