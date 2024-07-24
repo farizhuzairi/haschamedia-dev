@@ -41,7 +41,7 @@ class PageFeatureController extends Controller
             return redirect(Routerable::DASHBOARD->url());
         }
         
-        return view('service.page.create', [
+        return view('service.page.feature.create', [
             'product' => $service['product'],
             'service' => $service,
             'pageService' => $pageService,
