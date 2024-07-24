@@ -4,6 +4,17 @@
     "description": "Sumber kode utama untuk menjalankan prosedur pembuatan dan pengembangan produk aplikasi Hascha Media",
     "keywords": ["haschamedia", "ekatalog", "marketing-studio", "laravel"],
     "license": "MIT",
+    "homepage": "https://dev.haschamedia.com",
+    "support": {
+        "issues": "https://github.com/farizhuzairi/haschamedia-dev/issues",
+        "source": "https://github.com/farizhuzairi/haschamedia-dev"
+    },
+    "authors": [
+        {
+            "name": "Fariz Huzairi",
+            "email": "farizhuzairi@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.2"
     },
