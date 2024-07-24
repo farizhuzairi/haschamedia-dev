@@ -303,6 +303,15 @@ Route::prefix('/product/{productId}/service/page-feature/{pageServiceId}')->midd
         [\HaschaDev\Http\Controllers\Product\PageFeatureController::class, 'create']
     )->name(Routerable::SERVICE_PAGE_FEATURE_CREATE->value)->whereNumber('productId')->whereNumber('pageServiceId');
 
+    /**
+     * Manage Page Feature
+     * 
+     */
+    Route::get(
+        '/manage/{pageFeatureId}',
+        [\HaschaDev\Http\Controllers\Product\PageFeatureController::class, 'manage']
+    )->name(Routerable::SERVICE_PAGE_FEATURE_MANAGE->value)->whereNumber('productId')->whereNumber('pageServiceId')->whereNumber('pageFeatureId');
+
 });
 
 /**

@@ -156,7 +156,7 @@ class PageService implements Pageable
             
             case Routerable::SERVICE_MANAGE:
             $title = "Manage Service";
-            $name = "Layanan Aplikasi";
+            $name = "Kelola Layanan Aplikasi";
             $tagline = "";
             $description = "";
             break;
@@ -170,7 +170,7 @@ class PageService implements Pageable
             
             case Routerable::SERVICE_PAGE_MANAGE:
             $title = "Manage Page Service";
-            $name = "Rute dan Halaman";
+            $name = "Kelola Rute dan Halaman";
             $tagline = "";
             $description = "";
             break;
@@ -178,6 +178,13 @@ class PageService implements Pageable
             case Routerable::SERVICE_PAGE_FEATURE_CREATE:
             $title = "Create New Page Feature";
             $name = "Tambah Fitur Halaman Baru";
+            $tagline = "";
+            $description = "";
+            break;
+            
+            case Routerable::SERVICE_PAGE_FEATURE_MANAGE:
+            $title = "Manage Page Feature";
+            $name = "Kelola Fitur Halaman";
             $tagline = "";
             $description = "";
             break;

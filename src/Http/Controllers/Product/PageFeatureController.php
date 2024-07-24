@@ -33,11 +33,8 @@ class PageFeatureController extends Controller
             if(! $pageService || ! isset($pageService['service']['id']) || ! isset($pageService['product']['id'])){
                 throw new \Exception("Error Processing Request: data Layanan tidak ditemukan.");
             }
-
-            $service = $pageService['service'];
-            $product = $pageService['product'];
             
-            if($productId != $product['id']){
+            if($productId != $pageService['product']['id']){
                 throw new \Exception("Error Processing Request: data Produk tidak ditemukan.");
             }
         } catch (\Throwable $th) {
@@ -46,9 +43,40 @@ class PageFeatureController extends Controller
         }
         
         return view('service.page.feature.create', [
-            'product' => $service['product'],
-            'service' => $service,
+            'product' => $pageService['product'],
+            'service' => $pageService['service'],
             'pageService' => $pageService,
+        ]);
+    }
+
+    public function manage(
+        PageFeatureFactory $factory,
+        string $productId,
+        string $pageFeatureId,
+    ): View|RedirectResponse
+    {
+        try {
+            $pageFeature = $factory->find($pageFeatureId);
+            if(! $pageFeature){
+                throw new \Exception("Error Processing Request: data Layanan tidak ditemukan.");
+            }
+
+            if(! isset($pageFeature['page_service']['id']) || ! isset($pageFeature['service']['id']) || ! isset($pageFeature['product']['id'])){
+                throw new \Exception("Error Processing Request: data Layanan tidak ditemukan.");
+            }
+            if($productId != $pageFeature['product']['id']){
+                throw new \Exception("Error Processing Request: data Produk tidak ditemukan.");
+            }
+        } catch (\Throwable $th) {
+            Log::error($th);
+            return redirect(Routerable::DASHBOARD->url());
+        }
+        
+        return view('service.page.feature.manage', [
+            'service' => $pageFeature['service'],
+            'product' => $pageFeature['product'],
+            'pageService' => $pageFeature['page_service'],
+            'pageFeature' => $pageFeature,
         ]);
     }
 }

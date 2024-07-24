@@ -26,6 +26,7 @@ enum Routerable : string
     case SERVICE_PAGE_CREATE = "service.page.create";
     case SERVICE_PAGE_MANAGE = "service.page.manage";
     case SERVICE_PAGE_FEATURE_CREATE = "service.page.feature.create";
+    case SERVICE_PAGE_FEATURE_MANAGE = "service.page.feature.manage";
     case PACKAGE = "package";
     case PACKAGE_CREATE = "package.create";
     case PACKAGE_MANAGE = "package.manage";
