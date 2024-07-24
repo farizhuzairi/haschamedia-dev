@@ -132,6 +132,10 @@ class PageService implements Production
                     $service = $page->service;
                     $result['service'] = $service ? $service->toArray() : [];
                     $result['service']['logo'] = $service ? $service->logo() : [];
+                    // product ...
+                    $product = $service->applicationProduct;
+                    $result['product'] = $product ? $product->toArray() : [];
+                    $result['product']['logo'] = $product ? $product->logo() : [];
                 }
             }
         } catch (\Throwable $th) {

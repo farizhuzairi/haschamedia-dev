@@ -9,12 +9,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use HaschaDev\Services\Page\Routerable;
 use HaschaDev\Production\PageFeature\PageFeatureFactory;
+use HaschaDev\Production\PageService\PageServiceFactory;
 
 class PageFeatureController extends Controller
 {
     public function create(
         Dev $dev,
         PageFeatureFactory $factory,
+        PageServiceFactory $pageServiceFactory,
         string $productId,
         string $pageServiceId,
         string $key
@@ -24,15 +26,17 @@ class PageFeatureController extends Controller
             if(! $factory->hasLiveSession($key)){
                 throw new \Exception("Invalid session");
             }
-    
+
             $dev->setDataTemps(['key' => $key]);
-            $pageService = $factory->find($pageServiceId);
-            if(! $pageService || ! isset($pageService['service']['id']) || ! isset($pageService['service']['product']['id'])){
+            $pageService = $pageServiceFactory->find($pageServiceId);
+
+            if(! $pageService || ! isset($pageService['service']['id']) || ! isset($pageService['product']['id'])){
                 throw new \Exception("Error Processing Request: data Layanan tidak ditemukan.");
             }
 
             $service = $pageService['service'];
-            $product = $service['product'];
+            $product = $pageService['product'];
+            
             if($productId != $product['id']){
                 throw new \Exception("Error Processing Request: data Produk tidak ditemukan.");
             }
