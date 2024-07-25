@@ -2,6 +2,7 @@
 
 namespace HaschaDev\Production\PageFeature;
 
+use HaschaDev\HaschaMedia;
 use HaschaDev\Enums\PageContentable;
 use HaschaDev\Production\PageFeature\PageFeatureFactory;
 use HaschaDev\Production\Traits\FormValidation\PageContentableDynamicValidation;
@@ -160,7 +161,7 @@ class PageContentableFactory extends PageFeatureFactory
             $instance = $this->build();
             $upload = $instance->uploadImagePageContentable([
                 'pageServiceId' => $attributes['pageServiceId'],
-                'title' => $attributes['title'],
+                'title' => $attributes['title'] . ' - ' . HaschaMedia::random(12),
                 'image' => $i['image']
             ]);
             if($upload){
