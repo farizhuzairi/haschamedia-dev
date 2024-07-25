@@ -12,6 +12,7 @@ use HaschaDev\Production\Traits\Transaction\Relationable;
 use HaschaDev\Production\Traits\LiveSession\LiveSessionable;
 use HaschaDev\Production\Traits\Transaction\QuickTransaction;
 use HaschaDev\Production\Traits\FormValidation\BaseValidationFormApp;
+use HaschaDev\Production\Traits\FormValidation\PageContentableDynamicValidation;
 
 class PageFeatureFactory extends AppBuilder implements FactoryBuilder
 {
@@ -132,6 +133,12 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
      * 
      */
     use Relationable;
+
+    /**
+     * page contentable validation
+     * 
+     */
+    use PageContentableDynamicValidation;
 
     /**
      * Validasi data Page Contentable
