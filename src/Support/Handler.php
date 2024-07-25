@@ -3,6 +3,7 @@
 namespace HaschaDev\Support;
 
 use HaschaDev\Dev;
+use \Illuminate\Support\Facades\Config as AppConfig;
 use HaschaDev\Support\Config;
 use HaschaDev\Database\DBConnect;
 use Illuminate\Support\Facades\Log;
@@ -27,18 +28,19 @@ class Handler implements Dev
     public function setGuarded(): void
     {
         $this->guarded = Config::set();
-        \Illuminate\Support\Facades\Config::set('auth.providers.users.model', env('AUTH_MODEL', \HaschaDev\Models\User::class));
+        
+        AppConfig::set('auth.providers.users.model', env('AUTH_MODEL', \HaschaDev\Models\User::class));
 
-        /**
-         * set database connections
-         * 
-         */
         $this->set_db_connections();
     }
 
+    /**
+     * set database connections
+     * 
+     */
     protected function set_db_connections(): void
     {
-        $appDB = \Illuminate\Support\Facades\Config::get('database');
+        $appDB = AppConfig::get('database');
         $getConnections = $appDB['connections'];
 
         $appDB['connections'] = array_merge($getConnections, [
@@ -104,8 +106,6 @@ class Handler implements Dev
         ]);
 
         \Illuminate\Support\Facades\Config::set('database', $appDB);
-
-        Log::info("Berhasil memperbarui database connections dalam konfigurasi database.");
     }
 
     /**

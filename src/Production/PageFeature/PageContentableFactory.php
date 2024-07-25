@@ -125,4 +125,18 @@ class PageContentableFactory extends PageFeatureFactory
 
         return $upload->toArray();
     }
+
+    /**
+     * banner upload
+     * page contentable: banner
+     * 
+     */
+    public function contentableBannerUplad(array $attributes): ?array
+    {
+        $instance = $this->build();
+        $upload = $instance->uploadBannerPageContentable($attributes);
+        if(! $upload) return null;
+
+        return $upload->toArray();
+    }
 }

@@ -17,6 +17,21 @@ trait PageContentableDynamicValidation
             'max:12288'
         ];
     }
+
+
+    /**
+     * Validasi atribut: banner
+     * 
+     */
+    public function bannerDynamicValidation(): array
+    {
+        return [
+            'required',
+            'image',
+            'mimes:png,jpg,jpeg',
+            'max:12288'
+        ];
+    }
     
     /**
      * Validasi atribut: image description

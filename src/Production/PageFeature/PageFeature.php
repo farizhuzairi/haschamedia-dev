@@ -43,6 +43,22 @@ class PageFeature implements Production
     }
 
     /**
+     * banner upload
+     * page contentable: banner
+     * 
+     */
+    public function uploadBannerPageContentable(array $attributes): ?Modelable
+    {
+        $upload = $this->imageUpload(
+            id: $attributes['pageServiceId'],
+            title: $attributes['title'],
+            imageable: Imageable::SERVICE_PAGE,
+            root: $attributes['banner']
+        );
+        return $upload ? $upload->fileMedia() : null;
+    }
+
+    /**
      * menyusun struktur data untuk objek baru
      * dan meneruskan proses pembuatan objek ke sumber daya
      * 
