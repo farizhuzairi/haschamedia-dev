@@ -5,6 +5,7 @@ namespace HaschaDev\Support;
 use HaschaDev\Dev;
 use HaschaDev\Support\Config;
 use HaschaDev\Database\DBConnect;
+use Illuminate\Support\Facades\Log;
 use HaschaDev\Contracts\Page\Pageable;
 
 class Handler implements Dev
@@ -37,7 +38,7 @@ class Handler implements Dev
 
     protected function set_db_connections(): void
     {
-        $appDB = \Illuminate\Support\Facades\Config::get('app.database');
+        $appDB = \Illuminate\Support\Facades\Config::get('database');
         $getConnections = $appDB['connections'];
 
         $appDB['connections'] = array_merge($getConnections, [
@@ -102,7 +103,9 @@ class Handler implements Dev
             ],
         ]);
 
-        \Illuminate\Support\Facades\Config::set('app.database', $appDB);
+        \Illuminate\Support\Facades\Config::set('database', $appDB);
+
+        Log::info("Berhasil memperbarui database connections dalam konfigurasi database.");
     }
 
     /**
