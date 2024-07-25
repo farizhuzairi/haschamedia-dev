@@ -127,6 +127,33 @@ class PageContentableFactory extends PageFeatureFactory
     }
 
     /**
+     * image upload
+     * page contentable: images
+     * 
+     */
+    public function contentableImagesUpload(array $attributes): ?array
+    {
+        $instance = $this->build();
+        
+        $results = [];
+        foreach($attributes['images'] as $i){
+            $upload = $instance->uploadImagesPageContentable([
+                'pageServiceId' => $attributes['pageServiceId'],
+                'title' => $attributes['title'],
+                'image' => $i['image']
+            ]);
+            if($upload){
+                $data = $upload->toArray();
+                $data['description'] = $i['description'];
+                $results[] = $data;
+            }
+        }
+
+        if(empty($results)) return null;
+        return $results;
+    }
+
+    /**
      * banner upload
      * page contentable: banner
      * 
