@@ -36,4 +36,18 @@ trait PageContentableFactoryFormable
     {
         $this->image = null;
     }
+
+    /**
+     * images uploaded
+     * 
+     */
+    public ?object $imageUploaded = null;
+    public function updatedImageUploaded(?object $value): void
+    {
+        if($value){
+            $this->images['image'] = $value;
+        }
+
+        $this->imageUploaded = null;
+    }
 }
