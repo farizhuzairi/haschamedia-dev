@@ -11,7 +11,9 @@ trait PageContentableFactoryFormable
     public string $pageServiceId;
     public string $contentable;
     public ?object $image = null;
+    public array $images = [];
     public ?object $banner = null;
+    public array $banners = [];
     public ?string $content = null;
     public ?string $description = null;
     

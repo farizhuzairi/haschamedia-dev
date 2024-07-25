@@ -117,7 +117,7 @@ class PageContentableFactory extends PageFeatureFactory
      * page contentable: image
      * 
      */
-    public function contentableImageUplad(array $attributes): ?array
+    public function contentableImageUpload(array $attributes): ?array
     {
         $instance = $this->build();
         $upload = $instance->uploadImagePageContentable($attributes);
@@ -131,7 +131,7 @@ class PageContentableFactory extends PageFeatureFactory
      * page contentable: banner
      * 
      */
-    public function contentableBannerUplad(array $attributes): ?array
+    public function contentableBannerUpload(array $attributes): ?array
     {
         $instance = $this->build();
         $upload = $instance->uploadBannerPageContentable($attributes);
