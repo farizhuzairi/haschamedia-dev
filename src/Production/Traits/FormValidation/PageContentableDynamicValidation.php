@@ -47,6 +47,19 @@ trait PageContentableDynamicValidation
     }
     
     /**
+     * Validasi atribut: image description
+     * 
+     */
+    public function descriptionImagesDynamicValidation(): array
+    {
+        return [
+            'string',
+            'max:250',
+            'nullable'
+        ];
+    }
+    
+    /**
      * Validasi atribut: content
      * 
      */
