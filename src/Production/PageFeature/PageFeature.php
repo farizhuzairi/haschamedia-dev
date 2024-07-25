@@ -39,7 +39,7 @@ class PageFeature implements Production
             imageable: Imageable::SERVICE_PAGE,
             root: $attributes['image']
         );
-        return $upload ? $upload->fileMedia : null;
+        return $upload ? $upload->fileMedia() : null;
     }
 
     /**
