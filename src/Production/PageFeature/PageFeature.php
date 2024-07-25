@@ -8,6 +8,7 @@ use HaschaDev\File\Media\Imageable;
 use Illuminate\Support\Facades\Log;
 use HaschaDev\Application\ClientWebRoute;
 use HaschaDev\Database\Abstracts\Modelable;
+use HaschaDev\File\Traits\GlobalImageUpload;
 use HaschaDev\Production\Abstracts\Production;
 use HaschaDev\Models\Production\PageFeature as DBPageFeature;
 
@@ -17,6 +18,29 @@ class PageFeature implements Production
 
     public function __construct()
     {}
+
+    /**
+     * image uploading
+     * add new media
+     * 
+     */
+    use GlobalImageUpload;
+
+    /**
+     * image upload
+     * page contentable: image
+     * 
+     */
+    public function uploadImagePageContentable(array $attributes): ?Modelable
+    {
+        $upload = $this->imageUpload(
+            id: $attributes['pageServiceId'],
+            title: $attributes['title'],
+            imageable: Imageable::SERVICE_PAGE,
+            root: $attributes['image']
+        );
+        return $upload ? $upload->fileMedia : null;
+    }
 
     /**
      * menyusun struktur data untuk objek baru

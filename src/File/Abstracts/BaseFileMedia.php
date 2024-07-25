@@ -3,8 +3,9 @@
 namespace HaschaDev\File\Abstracts;
 
 use HaschaDev\HaschaMedia;
-use HaschaDev\Models\File\FileMedia;
 use Illuminate\Support\Facades\Log;
+use HaschaDev\Models\File\FileMedia;
+use HaschaDev\Database\Abstracts\Modelable;
 
 abstract class BaseFileMedia
 {
@@ -13,13 +14,13 @@ abstract class BaseFileMedia
      * hanya akan bernilai (true) jikaproses upload|delete dijalankan
      * 
      */
-    protected ?FileMedia $fileMedia = null;
+    protected ?Modelable $fileMedia = null;
 
     /**
      * add new file image
      * 
      */
-    public function addNewMedia(array $attributes): ?FileMedia
+    public function addNewMedia(array $attributes): ?Modelable
     {
         $store = null;
         try {
@@ -39,6 +40,15 @@ abstract class BaseFileMedia
             Log::error("Gagal menambahkan data file image. error_in_PHP_class: " . __CLASS__);
         }
         return $store;
+    }
+
+    /**
+     * get filemedia
+     * 
+     */
+    public function fileMedia(): Modelable
+    {
+        return $this->fileMedia;
     }
 
     /**

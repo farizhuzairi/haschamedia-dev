@@ -187,8 +187,9 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          */
         elseif($model === PageContentable::IMAGE){
             $result = [
+                'id' => $contents['id'],
                 'image' => $contents['image'],
-                'descrption' => $contents['descrption']
+                'description' => $contents['description']
             ];
             $result = json_encode($result);
             return (string) $result;
@@ -206,7 +207,9 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          */
         elseif($model === PageContentable::BANNER){
             $result = [
-                'banner' => $contents['banner']
+                'id' => $contents['id'],
+                'banner' => $contents['banner'],
+                'description' => $contents['description']
             ];
             $result = json_encode($result);
             return (string) $result;
@@ -233,5 +236,18 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
     public function dataContentable(): array
     {
         return PageContentable::data();
+    }
+
+    /**
+     * image upload
+     * page contentable: image
+     * 
+     */
+    public function contentableImageUplad(array $attributes): ?array
+    {
+        $upload = $this->uploadImagePageContentable($attributes);
+        if(! $upload) return null;
+
+        return $upload->toArray();
     }
 }

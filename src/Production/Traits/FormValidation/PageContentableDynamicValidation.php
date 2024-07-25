@@ -56,4 +56,17 @@ trait PageContentableDynamicValidation
             'max:800'
         ];
     }
+    
+    /**
+     * Validasi atribut: article
+     * 
+     */
+    public function articleDynamicValidation(): array
+    {
+        return [
+            'required',
+            'string',
+            'max:8000'
+        ];
+    }
 }

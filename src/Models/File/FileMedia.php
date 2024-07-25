@@ -4,9 +4,10 @@ namespace HaschaDev\Models\File;
 
 use HaschaDev\Database\DBConnect;
 use Illuminate\Database\Eloquent\Model;
+use HaschaDev\Database\Abstracts\Modelable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FileMedia extends Model
+class FileMedia extends Model implements Modelable
 {
     use SoftDeletes;
     
