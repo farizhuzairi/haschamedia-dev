@@ -245,7 +245,8 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
      */
     public function contentableImageUplad(array $attributes): ?array
     {
-        $upload = $this->uploadImagePageContentable($attributes);
+        $instance = $this->build();
+        $upload = $instance->uploadImagePageContentable($attributes);
         if(! $upload) return null;
 
         return $upload->toArray();
