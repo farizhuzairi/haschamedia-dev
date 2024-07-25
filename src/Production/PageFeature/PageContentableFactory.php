@@ -155,16 +155,16 @@ class PageContentableFactory extends PageFeatureFactory
      */
     public function contentableImagesUpload(array $attributes): ?array
     {
-        $instance = $this->build();
-
         $results = [];
         foreach($attributes['images'] as $i){
+            $instance = $this->build();
             $upload = $instance->uploadImagePageContentable([
                 'pageServiceId' => $attributes['pageServiceId'],
                 'title' => $attributes['title'],
                 'image' => $i['image']
             ]);
             if($upload){
+                $data = [];
                 $data = $upload->toArray();
                 $data['description'] = $i['description'];
                 $results[] = $data;
