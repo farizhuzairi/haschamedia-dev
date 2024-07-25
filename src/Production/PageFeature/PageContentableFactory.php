@@ -73,7 +73,18 @@ class PageContentableFactory extends PageFeatureFactory
          * as IMAGES
          * 
          */
-        elseif($model === PageContentable::IMAGES){}
+        elseif($model === PageContentable::IMAGES){
+            $results = [];
+            foreach($contents as $i){
+                $results[] = [
+                    'id' => $i['id'],
+                    'image' => $i['image'],
+                    'description' => $i['description']
+                ];
+            }
+            $results = json_encode($results);
+            return (string) $results;
+        }
 
         /**
          * as BANNER
@@ -93,7 +104,18 @@ class PageContentableFactory extends PageFeatureFactory
          * as BANNERS
          * 
          */
-        elseif($model === PageContentable::BANNERS){}
+        elseif($model === PageContentable::BANNERS){
+            $results = [];
+            foreach($contents as $i){
+                $results[] = [
+                    'id' => $i['id'],
+                    'banner' => $i['banner'],
+                    'description' => $i['description']
+                ];
+            }
+            $results = json_encode($results);
+            return (string) $results;
+        }
         
         /**
          * mismatch
@@ -134,7 +156,7 @@ class PageContentableFactory extends PageFeatureFactory
     public function contentableImagesUpload(array $attributes): ?array
     {
         $instance = $this->build();
-        
+
         $results = [];
         foreach($attributes['images'] as $i){
             $upload = $instance->uploadImagesPageContentable([
