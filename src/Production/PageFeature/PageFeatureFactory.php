@@ -150,7 +150,7 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          */
         if($model === PageContentable::TEXT){
             $result = [
-                $model->value => $contents['content']
+                'content' => $contents['content']
             ];
             $result = json_encode($result);
             return (string) $result;
@@ -162,7 +162,7 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          */
         elseif($model === PageContentable::ARTICLE){
             $result = [
-                $model->value => $contents['content']
+                'content' => $contents['content']
             ];
             $result = json_encode($result);
             return (string) $result;
@@ -178,7 +178,14 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          * as IMAGE
          * 
          */
-        elseif($model === PageContentable::IMAGE){}
+        elseif($model === PageContentable::IMAGE){
+            $result = [
+                'image' => $contents['image'],
+                'descrption' => $contents['descrption']
+            ];
+            $result = json_encode($result);
+            return (string) $result;
+        }
 
         /**
          * as IMAGES
@@ -190,7 +197,13 @@ class PageFeatureFactory extends AppBuilder implements FactoryBuilder
          * as BANNER
          * 
          */
-        elseif($model === PageContentable::BANNER){}
+        elseif($model === PageContentable::BANNER){
+            $result = [
+                'banner' => $contents['banner']
+            ];
+            $result = json_encode($result);
+            return (string) $result;
+        }
 
         /**
          * as BANNERS
