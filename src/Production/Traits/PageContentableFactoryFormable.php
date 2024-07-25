@@ -45,7 +45,7 @@ trait PageContentableFactoryFormable
     public function updatedImageUploaded(?object $value): void
     {
         if($value){
-            $this->images['image'] = $value;
+            $this->images[]['image'] = $value;
         }
 
         $this->imageUploaded = null;
