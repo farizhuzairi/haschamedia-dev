@@ -4,14 +4,14 @@ namespace HaschaDev\Models\Production;
 
 use Illuminate\Support\Str;
 use HaschaDev\Database\DBConnect;
-use HaschaDev\Models\Production\FeatureRule;
 use HaschaDev\Database\TimestampModel;
-use HaschaDev\Models\Production\FeatureModel;
 use Illuminate\Database\Eloquent\Model;
 use HaschaDev\Database\Abstracts\Modelable;
-use HaschaDev\Models\Production\ApplicationProduct;
+use HaschaDev\Models\Production\FeatureRule;
+use HaschaDev\Models\Production\FeatureModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use HaschaDev\Models\Production\ApplicationProduct;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
