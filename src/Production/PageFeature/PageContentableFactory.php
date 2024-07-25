@@ -159,7 +159,7 @@ class PageContentableFactory extends PageFeatureFactory
 
         $results = [];
         foreach($attributes['images'] as $i){
-            $upload = $instance->uploadImagesPageContentable([
+            $upload = $instance->uploadImagePageContentable([
                 'pageServiceId' => $attributes['pageServiceId'],
                 'title' => $attributes['title'],
                 'image' => $i['image']
