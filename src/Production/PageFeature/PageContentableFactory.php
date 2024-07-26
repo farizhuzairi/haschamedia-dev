@@ -161,7 +161,7 @@ class PageContentableFactory extends PageFeatureFactory
             $instance = $this->build();
             $upload = $instance->uploadImagePageContentable([
                 'pageServiceId' => $attributes['pageServiceId'],
-                'title' => $attributes['title'] . ' - ' . HaschaMedia::random(12),
+                'title' => $attributes['title'] . ' - ' . HaschaMedia::random(12) . ' ' . now()->timestamp,
                 'image' => $i['image']
             ]);
             if($upload){

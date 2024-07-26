@@ -91,6 +91,7 @@ class Rule implements Production
                 if($isArray){
                     $result = $model->map(function($i){
                         $result = $i->toArray();
+                        $result['data_value'] = $this->dataContentValue($i->data_type, $i->content_value);
                         return $result;
                     })->toArray();
                 }
