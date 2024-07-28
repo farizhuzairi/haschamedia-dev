@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Models;
 
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use HaschaDev\Models\Scopes\IsActive;
 use Illuminate\Database\Eloquent\Model;
 

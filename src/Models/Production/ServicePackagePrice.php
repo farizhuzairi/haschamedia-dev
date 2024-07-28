@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Models\Production;
 
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use HaschaDev\Enums\Periodically;
 use HaschaDev\Database\TimestampModel;
 use Illuminate\Database\Eloquent\Model;

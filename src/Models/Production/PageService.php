@@ -3,7 +3,7 @@
 namespace HaschaDev\Models\Production;
 
 use Illuminate\Support\Str;
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use HaschaDev\Models\Production\Service;
 use HaschaDev\Models\Production\PageFeature;
 use HaschaDev\Database\TimestampModel;

@@ -3,7 +3,7 @@
 namespace HaschaDev\Production\Rule;
 
 use HaschaDev\HaschaMedia;
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;

@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Models\File;
 
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use Illuminate\Database\Eloquent\Model;
 use HaschaDev\Database\Abstracts\Modelable;
 use Illuminate\Database\Eloquent\SoftDeletes;

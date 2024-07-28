@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Models\Production;
 
-use HaschaDev\Database\DBConnect;
+use Publisher\Fundamentals\Config\DBConnect;
 use HaschaDev\File\Media\Imageable;
 use HaschaDev\Models\Production\PageService;
 use HaschaDev\Database\TimestampModel;
