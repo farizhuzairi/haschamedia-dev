@@ -2,16 +2,11 @@
 
 namespace HaschaDev\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Publisher\Configurations\DBConnect;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
-
     protected $connection = DBConnect::BASE->value;
     protected $table = 'users';
     protected $primaryKey = 'id';
