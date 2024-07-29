@@ -2,7 +2,7 @@
 
 namespace HaschaDev\Models\Production;
 
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use HaschaDev\Models\Production\PageService;
 use HaschaDev\Database\TimestampModel;
 use Illuminate\Database\Eloquent\Model;

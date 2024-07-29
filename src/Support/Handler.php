@@ -5,7 +5,7 @@ namespace HaschaDev\Support;
 use HaschaDev\Dev;
 use \Illuminate\Support\Facades\Config as AppConfig;
 use HaschaDev\Support\Config;
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use Illuminate\Support\Facades\Log;
 use HaschaDev\Contracts\Page\Pageable;
 

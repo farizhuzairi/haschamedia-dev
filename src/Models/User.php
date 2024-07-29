@@ -3,7 +3,7 @@
 namespace HaschaDev\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;

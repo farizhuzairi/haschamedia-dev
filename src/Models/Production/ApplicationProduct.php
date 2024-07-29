@@ -3,7 +3,7 @@
 namespace HaschaDev\Models\Production;
 
 use Illuminate\Support\Str;
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use HaschaDev\Models\Production\Feature;
 use HaschaDev\Models\Production\Service;
 use HaschaDev\File\Media\Imageable;

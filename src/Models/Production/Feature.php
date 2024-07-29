@@ -3,7 +3,7 @@
 namespace HaschaDev\Models\Production;
 
 use Illuminate\Support\Str;
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use HaschaDev\Database\TimestampModel;
 use Illuminate\Database\Eloquent\Model;
 use HaschaDev\Database\Abstracts\Modelable;

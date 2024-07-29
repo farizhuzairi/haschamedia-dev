@@ -4,7 +4,7 @@ namespace HaschaDev\Models;
 
 use HaschaDev\Roleable;
 use HaschaDev\Models\RolePermission;
-use Publisher\Fundamentals\Config\DBConnect;
+use Publisher\Configurations\DBConnect;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
