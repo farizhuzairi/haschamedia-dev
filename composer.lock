@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f23ca240c8c5035d409ecb1d6b4c9fa3",
+    "content-hash": "2af0bb441fde096092d2b4c310b802a3",
     "packages": [
         {
             "name": "brick/math",
@@ -227,8 +227,116 @@
             "time": "2024-02-18T20:23:39+00:00"
         },
         {
+            "name": "haschamedia/basecrypt",
+            "version": "1.0.0-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haschamedia/basecrypt.git",
+                "reference": "6a1db974220c0b2852ad977ccca1ccbd3e6df7d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haschamedia/basecrypt/zipball/6a1db974220c0b2852ad977ccca1ccbd3e6df7d8",
+                "reference": "6a1db974220c0b2852ad977ccca1ccbd3e6df7d8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^11.1",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BaseCrypt\\BaseCryptServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BaseCrypt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fariz Huzairi",
+                    "email": "farizhuzairi@gmail.com"
+                }
+            ],
+            "description": "Base Crypt, Simple Encryption Code",
+            "keywords": [
+                "basecrypt",
+                "haschamedia",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/haschamedia/basecrypt/issues",
+                "source": "https://github.com/haschamedia/basecrypt"
+            },
+            "time": "2024-07-26T01:09:40+00:00"
+        },
+        {
+            "name": "haschamedia/publisher",
+            "version": "1.0.0-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haschamedia/publisher.git",
+                "reference": "47038f14689968559c2fb50956f83c873616bf12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haschamedia/publisher/zipball/47038f14689968559c2fb50956f83c873616bf12",
+                "reference": "47038f14689968559c2fb50956f83c873616bf12",
+                "shasum": ""
+            },
+            "require": {
+                "haschamedia/basecrypt": "^1.0.0-alpha",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Publisher\\PublisherServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Publisher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fariz Huzairi",
+                    "email": "farizhuzairi@gmail.com"
+                }
+            ],
+            "description": "Compile data in abstractive code to build application product resources",
+            "keywords": [
+                "application",
+                "haschamedia",
+                "laravel",
+                "publishing",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/haschamedia/publisher/issues",
+                "source": "https://github.com/haschamedia/publisher"
+            },
+            "time": "2024-07-29T01:41:08+00:00"
+        },
+        {
             "name": "illuminate/collections",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -283,7 +391,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -329,16 +437,16 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "c3c2713c66d120bf42865e831cfcef6ed9e10db2"
+                "reference": "122c62229b209678013c0833793d7cf94d14bbbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/c3c2713c66d120bf42865e831cfcef6ed9e10db2",
-                "reference": "c3c2713c66d120bf42865e831cfcef6ed9e10db2",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/122c62229b209678013c0833793d7cf94d14bbbd",
+                "reference": "122c62229b209678013c0833793d7cf94d14bbbd",
                 "shasum": ""
             },
             "require": {
@@ -376,11 +484,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-18T15:50:24+00:00"
+            "time": "2024-07-26T06:12:27+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -428,16 +536,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "35a9f2e39aba083835c3a17e18f184b2e2529039"
+                "reference": "3785e0d14d8e427b72db08a9c969d4afdcf21cba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/35a9f2e39aba083835c3a17e18f184b2e2529039",
-                "reference": "35a9f2e39aba083835c3a17e18f184b2e2529039",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/3785e0d14d8e427b72db08a9c969d4afdcf21cba",
+                "reference": "3785e0d14d8e427b72db08a9c969d4afdcf21cba",
                 "shasum": ""
             },
             "require": {
@@ -492,11 +600,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-23T16:22:48+00:00"
+            "time": "2024-07-26T06:18:25+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -542,16 +650,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v11.17.0",
+            "version": "v11.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "a348d3fc2ff717da9f7a2fb9c13d3667de6a38cd"
+                "reference": "135bfb40087df34e7eae3ed699e753442f349020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/a348d3fc2ff717da9f7a2fb9c13d3667de6a38cd",
-                "reference": "a348d3fc2ff717da9f7a2fb9c13d3667de6a38cd",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/135bfb40087df34e7eae3ed699e753442f349020",
+                "reference": "135bfb40087df34e7eae3ed699e753442f349020",
                 "shasum": ""
             },
             "require": {
@@ -612,7 +720,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-23T14:08:10+00:00"
+            "time": "2024-07-26T05:48:25+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1104,16 +1212,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v7.1.1",
+            "version": "v7.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "cf5ae136e124fc7681b34ce9fac9d5b9ae8ceee3"
+                "reference": "8d5e50c813ba2859a6dfc99a0765c550507934a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/cf5ae136e124fc7681b34ce9fac9d5b9ae8ceee3",
-                "reference": "cf5ae136e124fc7681b34ce9fac9d5b9ae8ceee3",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/8d5e50c813ba2859a6dfc99a0765c550507934a1",
+                "reference": "8d5e50c813ba2859a6dfc99a0765c550507934a1",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1286,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v7.1.1"
+                "source": "https://github.com/symfony/translation/tree/v7.1.3"
             },
             "funding": [
                 {
@@ -1194,7 +1302,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-07-26T12:41:01+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -1351,9 +1459,11 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "alpha",
+    "stability-flags": {
+        "haschamedia/publisher": 15
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
