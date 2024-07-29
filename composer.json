@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "haschamedia/publisher": "^1.0.0-alpha"
+        "haschamedia/publisher": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -31,6 +31,6 @@
             ]
         }
     },
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

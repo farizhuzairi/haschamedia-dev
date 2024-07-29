@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2af0bb441fde096092d2b4c310b802a3",
+    "content-hash": "d762f44b0cb012af612eb31eb1bfbbf8",
     "packages": [
         {
             "name": "brick/math",
@@ -281,22 +281,22 @@
         },
         {
             "name": "haschamedia/publisher",
-            "version": "1.0.0-alpha",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/haschamedia/publisher.git",
-                "reference": "47038f14689968559c2fb50956f83c873616bf12"
+                "reference": "05ef4470f89ed40961dc7c9af62abc6c606ccc98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/haschamedia/publisher/zipball/47038f14689968559c2fb50956f83c873616bf12",
-                "reference": "47038f14689968559c2fb50956f83c873616bf12",
+                "url": "https://api.github.com/repos/haschamedia/publisher/zipball/05ef4470f89ed40961dc7c9af62abc6c606ccc98",
+                "reference": "05ef4470f89ed40961dc7c9af62abc6c606ccc98",
                 "shasum": ""
             },
             "require": {
-                "haschamedia/basecrypt": "^1.0.0-alpha",
-                "php": "^8.2"
+                "haschamedia/basecrypt": "^1.0.0-alpha"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -332,7 +332,7 @@
                 "issues": "https://github.com/haschamedia/publisher/issues",
                 "source": "https://github.com/haschamedia/publisher"
             },
-            "time": "2024-07-29T01:41:08+00:00"
+            "time": "2024-07-29T09:12:07+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -1459,15 +1459,13 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "haschamedia/publisher": 15
+        "haschamedia/publisher": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {
-        "php": "^8.2"
-    },
+    "platform": [],
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
