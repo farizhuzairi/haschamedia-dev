@@ -11,6 +11,12 @@ use HaschaDev\Contracts\Page\Pageable;
 
 class Handler implements Dev
 {
+    /**
+     * STARTER APPLICATION
+     * by Hascha Media Development
+     * 
+     */
+    
     private Config $guarded;
     private string $_trace;
     private string $routeName;
